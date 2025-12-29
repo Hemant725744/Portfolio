@@ -2,6 +2,11 @@
 
 # dependencies
 /node_modules
+
+.env
+dist/
+build/
+.cache/
 /.pnp
 .pnp.*
 .yarn/*
