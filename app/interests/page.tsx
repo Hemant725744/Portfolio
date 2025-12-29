@@ -1,6 +1,6 @@
-import IntrestsNavbar from "@/components/Interests/InterestsNavbar";
-import IntrestsBody from "@/components/Interests/InterestsBody";
-import IntrestsFooter from "@/components/Interests/InterestsFooter";
+import IntrestsNavbar from "@/components/interests/InterestsNavbar";
+import IntrestsBody from "@/components/interests/InterestsBody";
+import IntrestsFooter from "@/components/interests/InterestsFooter";
 
 
 export default function IntrestsPage() {
