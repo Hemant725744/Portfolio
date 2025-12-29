@@ -1,12 +1,14 @@
-import IntrestBody from "@/components/interests/InterestsBody";
+import IntrestsNavbar from "@/components/Interests/InterestsNavbar";
+import IntrestsBody from "@/components/Interests/InterestsBody";
+import IntrestsFooter from "@/components/Interests/InterestsFooter";
 
 
-
-export default function ProjectsPage() {
+export default function IntrestsPage() {
   return (
-    <main className="min-h-screen bg-[#F9F7F2]">
-      <IntrestBody />
-      
+    <main className="bg-[#FDFBF7]">
+      <IntrestsNavbar />
+      <IntrestsBody />
+      <IntrestsFooter />
     </main>
   );
 }
