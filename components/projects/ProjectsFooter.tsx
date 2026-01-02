@@ -1,34 +1,73 @@
 "use client";
 
-import Link from "next/link";
-import { Github, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, MessageCircle, MapPin, Layers } from "lucide-react";
 
 export default function ProjectsFooter() {
   return (
-    <footer className="w-full bg-[#F9F7F2] border-t-2 border-[#1D3557] py-10 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer className="w-full bg-[#F9F7F2] pt-20 pb-10 border-t-4 border-[#1D3557] relative z-30 font-sans text-[#1D3557]">
+      <div className="max-w-6xl mx-auto px-6">
         
-        {/* Left: Brand */}
-        <div className="text-center md:text-left">
-           <h2 className="text-2xl font-black text-[#1D3557] uppercase">
-             HB<span className="text-[#E63946]">.LABS</span>
-           </h2>
-           <p className="text-xs font-bold tracking-widest text-[#1D3557]/60 mt-1">
-             DESIGNED & BUILT BY HEMANT BHATT
-           </p>
+        {/* === MAIN CONTENT GRID === */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 items-start">
+            
+            {/* --- LEFT COLUMN: BRAND & STATUS --- */}
+            <div className="space-y-8">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center overflow-hidden shadow-xl ring-4 ring-white">
+                    <img src="/logo.png" alt="HB Logo" className="w-full h-full object-cover" />
+                </div>
+
+                <div className="space-y-2 max-w-md">
+                    <p className="text-gray-700 font-medium leading-relaxed text-lg">
+                        Final Year Computer Engineering Student. <br />
+                        <span className="text-black font-bold">Full-Stack Developer.</span> Problem Solver. <br />
+                        Open to exciting opportunities and collaborations!
+                    </p>
+                </div>
+
+                {/* BADGE: "Open to Work" (Technical/Blueprint Theme) */}
+                <motion.div 
+                    whileHover={{ x: 5 }}
+                    className="inline-flex items-center gap-3 px-5 py-2.5 bg-[#1D3557] text-white text-xs font-bold tracking-widest uppercase shadow-[4px_4px_0px_#E63946] cursor-default"
+                >
+                    <div className="w-2 h-2 bg-[#E63946] rounded-full animate-pulse" />
+                    STATUS: OPEN FOR WORK
+                </motion.div>
+            </div>
+
+            {/* --- RIGHT COLUMN: CONNECT LINKS --- */}
+            <div className="md:flex md:justify-end">
+                <div className="space-y-8 min-w-[200px]">
+                    <h3 className="text-xs font-black tracking-[0.2em] text-[#E63946] uppercase border-b-2 border-[#1D3557]/10 pb-4">
+                        Coordinates
+                    </h3>
+                    
+                    <div className="flex flex-col gap-5">
+                        {[
+                            { name: "LinkedIn",  href: "https://linkedin.com/in/hemantbhatt19", icon: Linkedin },
+                            { name: "GitHub", href: "https://github.com/Hemant725744", icon: Github },
+                            { name: "Email",  href: "mailto:bhatthemant268@gmail.com",icon: Mail },
+                            { name: "WhatsApp", href: "https://wa.me/91725744268", icon: MessageCircle }
+                        ].map((item, idx) => (
+                            <a key={idx} href={item.href} className="flex items-center gap-4 text-[#1D3557]/60 hover:text-[#1D3557] transition-all group">
+                                <div className="p-2 border border-[#1D3557]/20 group-hover:bg-[#1D3557] group-hover:text-white transition-colors">
+                                    <item.icon size={16} />
+                                </div>
+                                <span className="font-bold text-sm tracking-wide">{item.name}</span>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
 
-        {/* Center: Decorative Line */}
-        <div className="hidden md:block w-32 h-[2px] bg-[#1D3557]/20" />
-
-        {/* Right: Socials */}
-        <div className="flex items-center gap-4">
-           <Link href="https://github.com/HemantBhatt" className="p-3 bg-white border border-[#1D3557] rounded-full hover:bg-[#1D3557] hover:text-white transition-all shadow-[4px_4px_0px_#E63946]">
-              <Github size={20} />
-           </Link>
-           {/* Placeholder for other social if needed */}
-           <div className="w-2 h-2 rounded-full bg-[#E63946]" />
-           <span className="text-sm font-bold text-[#1D3557]">© 2025</span>
+        {/* === BOTTOM BAR === */}
+        <div className="border-t border-[#1D3557]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] md:text-xs font-bold text-[#1D3557]/50 uppercase tracking-widest">
+            <p>Designed & Built by Hemant Bhatt © 2026</p>
+            <p className="flex items-center gap-2">
+                <MapPin size={12} className="text-[#E63946]" />
+                <span>Mumbai, IN</span>
+            </p>
         </div>
 
       </div>

@@ -15,23 +15,22 @@ export default function Navbar() {
       
       {/* ================= LEFT: GAMING PERSONA (HB.EXE) ================= */}
       <div className="flex items-center gap-2 group cursor-default">
-        <div className="w-8 h-8 rounded-md bg-[#2F3E2F] flex items-center justify-center">
-            <Terminal size={16} className="text-[#FDFBF7]" />
+        {/* LOGO CONTAINER */}
+        <div className="w-20 h-17 rounded-md flex items-center justify-center overflow-hidden  bg-[#FDFBF7]/90">
+            {/* Replace '/logo.png' with your actual file name */}
+            <img 
+              src="/logo.png" 
+              alt="HB Logo" 
+              className="w-full h-full object-cover   bg-[#FDFBF7]/90" 
+            />
         </div>
-        <div className="flex flex-col">
-           <span className="font-mono text-lg font-black tracking-tighter text-[#2F3E2F] leading-none">
-             HB.EXE
-           </span>
-           <span className="font-mono text-[9px] font-bold tracking-widest text-[#556B2F] uppercase animate-pulse">
-             RUNNING...
-           </span>
-        </div>
+        
       </div>
 
 
       {/* ================= CENTER: LOGO (Absolute Center) ================= */}
       <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-3">
-        <Gamepad2 strokeWidth={1.5} className="w-6 h-6 md:w-8 md:h-8 text-[#556B2F]" />
+        <Gamepad2 strokeWidth={1.5} className=" md:w-8 md:h-8 text-[#556B2F]  tracking-tighter hidden md:block" />
         <span className="font-serif text-2xl md:text-3xl font-black text-[#2F3E2F] tracking-tighter hidden md:block">
           OFF<span className="text-[#556B2F]">.</span>DUTY
         </span>

@@ -47,11 +47,16 @@ export default function Navbar() {
           
           {/* A. LOGO ONLY (Left Side) */}
           <Link href="/" className="group relative z-[110]">
-            <h1 className="text-xl md:text-2xl font-black tracking-tighter text-white">
-              <span className="group-hover:text-cyan-400 transition-colors duration-300">HB</span>
-              <span className="text-white/50 group-hover:text-white transition-colors duration-300">.DEV</span>
-            </h1>
-            <div className="absolute -bottom-1 left-0 w-0 h-[2px] bg-cyan-500 group-hover:w-full transition-all duration-300" />
+            
+            {/* LOGO CONTAINER */}
+        <div className="w-20 h-17 rounded-md flex items-center justify-center overflow-hidden ">
+            {/* Replace '/logo.pg' with your actual file name */}
+            <img 
+              src="/logo.png" 
+              alt="HB Logo" 
+              className="w-full h-full object-cover  " 
+            />
+        </div>
           </Link>
 
           {/* B. MENU TOGGLE (Right Side - Visible on ALL Screens now) */}

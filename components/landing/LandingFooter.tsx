@@ -26,18 +26,20 @@ export default function Footer() {
           {/* 1. BRAND & STATUS */}
           <div className="space-y-6 max-w-md">
             <Link href="/" className="group flex items-center gap-3 w-fit">
-              <div className="p-3 bg-white/5 rounded-xl text-cyan-400 group-hover:bg-cyan-500/10 transition-colors">
-                 <Terminal size={28} />
-              </div>
-              <h2 className="text-3xl font-black tracking-tighter text-white">
-                HB<span className="text-white/40">.DEV</span>
-              </h2>
+              <div className="w-20 h-20 rounded-md flex items-center justify-center overflow-hidden ">
+            {/* Replace '/logo.png' with your actual file name */}
+            <img 
+              src="/logo.png" 
+              alt="HB Logo" 
+              className="w-full h-full object-cover" 
+            />
+        </div>
             </Link>
             
             <p className="text-gray-400 text-base leading-relaxed font-mono">
               Final Year Computer Engineering Student. <br />
               Full-Stack Developer. Problem Solver. <br />
-              Building digital experiences from Mumbai.
+              Open to exciting opportunities and collaborations!
             </p>
 
             {/* Status Indicator */}
@@ -85,9 +87,7 @@ export default function Footer() {
               <span className="text-sm text-gray-600 font-mono">
                 LOC: Mumbai, IN
               </span>
-              <span className="text-sm text-gray-600 font-mono">
-                v2.0.25
-              </span>
+              
            </div>
 
         </div>

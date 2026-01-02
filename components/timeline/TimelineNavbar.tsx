@@ -11,10 +11,14 @@ export default function TimelineNavbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-black border-b border-white/10 text-white">
       
-      {/* Brand */}
-      <div className={`${playfair.className} text-xl md:text-2xl tracking-widest italic font-bold`}>
-        H. BHATT
-      </div>
+      <div className="w-20 h-17 rounded-md flex items-center justify-center overflow-hidden ">
+            {/* Replace '/logo.png' with your actual file name */}
+            <img 
+              src="/logo.png" 
+              alt="HB Logo" 
+              className="w-full h-full object-cover bg-black " 
+            />
+        </div>
 
       {/* Right Side Actions */}
       <div className="flex items-center gap-6 md:gap-8">
