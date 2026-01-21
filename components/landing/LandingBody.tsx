@@ -1,29 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; 
 import { motion, AnimatePresence } from "framer-motion";
 import { Terminal, Award, Clock, Briefcase, Gamepad2, ArrowRight, Bot, Send, Sparkles, Loader2, X, UserCircle, Cpu, Wifi, Palette, Feather, Heart } from "lucide-react";
 
-// =========================================================================
-// 1. DATA 
-// =========================================================================
-const KNOWLEDGE_BASE = [
-  { tags: ["identity", "who", "name", "student", "college", "university", "intro", "bio"], content: "Hemant Bhatt is a Final Year Computer Engineering Student at Pillai HOC College (Mumbai University) and a passionate Full-Stack Developer.", portal: "Timeline" },
-  { tags: ["marks", "score", "grade", "cgpa", "sgpi", "10th", "12th", "academic", "sem", "semester", "education", "result"], content: "Academically, Hemant holds a cumulative SGPI of 7.9/10. His semester-wise progression is strong: Sem 1 (8.5), Sem 2 (8.7), Sem 3 (9.0), Sem 4 (8.2), Sem 5 (9.1), and Sem 6 (9.3). He secured 85% in Class 12th and 89% in Class 10th.", portal: "Timeline" },
-  { tags: ["intern", "job", "work", "experience", "career", "sems", "acmegrade", "tg", "ganishka", "aptech", "systenics", "capgemini", "internship"], content: "His professional experience is extensive. He is currently an IT Intern at SEMS Welfare Foundation. Previously, he interned at AcmeGrade, TG Connect, and Ganishka Enterprises. He also served as a Project Head at Aptech.", portal: "Timeline" },
-  { tags: ["project", "build", "create", "hack", "ransomware", "hackoverflow", "website", "freelance", "ngo", "csi", "eduease", "algo", "development"], content: "His project portfolio is diverse. Key projects include 'Ransomware Attack Detection' (Deep Learning), the 'Hackoverflow 4.0' Official Website, and the 'EduEase' Attendance System.", portal: "Project Lab" },
-  { tags: ["future", "plan", "germany", "master", "abroad", "ielts", "goal", "study", "ms"], content: "Looking ahead, Hemant is targeting the Winter 2026 intake for a Master's in Computer Science in Germany. He is actively preparing for his IELTS exam in December 2025.", portal: "Timeline" },
-  { tags: ["skill", "tech", "stack", "code", "language", "react", "next", "java", "python", "backend", "frontend", "selenium", "php", "sql", "technology", "technologies"], content: "Technically, his arsenal is built on the MERN Stack. He is proficient in React.js, Next.js, and TypeScript for frontend, with PHP, MySQL, and Python powering backend logic.", portal: "Tech Arsenal" },
-  { tags: ["research", "paper", "publish", "achievement", "hackathon", "won", "certificate", "certification", "certifications", "sih", "nasscom", "award", "microsoft"], content: "He is a published researcher ('EduEase' in Journal of Data Engineering) and a winner of AlgoHackathon. He holds key certifications from NASSCOM (Skill India), Microsoft (Career Essentials), and Aptech (Java).", portal: "Trophy Room" },
-  { tags: ["interest", "hobby", "like", "love", "personal", "football", "messi", "wwe", "sheamus", "game", "fifa", "batman", "dislike"], content: "Off-duty, Hemant is a massive football fan (Team Messi & Argentina 🇦🇷), a WWE enthusiast (Sheamus 🇮🇪), and a competitive gamer (FIFA & Batman Arkham).", portal: "Off-Duty" },
-  { tags: ["german", "english", "hindi", "foreign", "goethe", "language"], content: "Linguistically, he is expanding his skills by learning German (A2 Level ongoing at Goethe-Institut) to support his Master's plans.", portal: "Trophy Room" }
-];
-
-const AI_INTRO_PHRASES = ["Based on Hemant's profile, ", "Accessing the bio-data archives: ", "Here is the relevant data regarding your query: ", "According to his records, "];
-const SUGGESTIONS = ["Experience?", "Certifications?", "Future Plans?", "Projects?", "Skills?"];
-const STOP_WORDS = ["what", "are", "is", "does", "he", "have", "has", "the", "a", "an", "tell", "me", "about", "his", "him", "hemant", "bhatt"];
+// --- SUGGESTIONS FOR THE USER ---
+const SUGGESTIONS = ["Who is Hemant?", "What is his Tech Stack?", "Does he like Football?", "Explain Next.js", "Future Plans?"];
 
 // Define Portal Types
 type PortalData = {
@@ -66,61 +49,48 @@ export default function LandingBody() {
     return () => window.removeEventListener("mousemove", updateMousePosition);
   }, []);
 
-  // --- AI LOGIC ---
-  const generateAIResponse = (userQuery: string) => {
-    const lowerQuery = userQuery.toLowerCase();
-    let tokens = lowerQuery.split(" ").map(t => t.trim()).filter(t => t !== "");
-    const filteredTokens = tokens.filter(token => !STOP_WORDS.includes(token));
-    const activeTokens = filteredTokens.length > 0 ? filteredTokens : tokens;
-
-    const scoredFacts = KNOWLEDGE_BASE.map(fact => {
-      let score = 0;
-      activeTokens.forEach(token => {
-        if (fact.tags.some(tag => tag.includes(token) || token.includes(tag))) {
-          score += 1;
-        }
-      });
-      return { ...fact, score };
-    });
-
-    const relevantFacts = scoredFacts.filter(f => f.score > 0).sort((a, b) => b.score - a.score);
-
-    if (relevantFacts.length > 0) {
-      const intro = AI_INTRO_PHRASES[Math.floor(Math.random() * AI_INTRO_PHRASES.length)];
-      const coreAnswer = relevantFacts.slice(0, 2).map(f => f.content).join(" ");
-      const targetPortal = relevantFacts[0].portal || "Timeline"; 
-      const suggestion = `\n\n👉 Suggestion: Explore the '${targetPortal}' portal for details.`;
-      return `${intro} ${coreAnswer} ${suggestion}`;
-    } else {
-      return "My neural sensors didn't catch a specific match. I can elaborately discuss Hemant's Grades (SGPI), Internships, Research Papers, or his Future Plans for Germany. Please specify a topic.";
-    }
-  };
-
+  // --- NEW AI LOGIC (Connects to app/api/chat/route.ts) ---
   const handleAskAI = async (e?: React.FormEvent, overrideQuery?: string) => {
     if (e) e.preventDefault();
     const finalQuery = overrideQuery || query;
     if (!finalQuery.trim()) return;
 
     if (overrideQuery) setQuery(overrideQuery);
+    
     setIsThinking(true);
     setShowResponse(true);
-    setResponse(""); 
+    setResponse(""); // Clear previous response
     
-    await new Promise(resolve => setTimeout(resolve, 800)); 
-    
-    const answer = generateAIResponse(finalQuery);
-    setIsThinking(false);
-    setIsTyping(true);
-    
-    let i = 0;
-    const typeWriter = setInterval(() => {
-      i++;
-      setResponse(answer.substring(0, i)); 
-      if (i >= answer.length) {
-        clearInterval(typeWriter);
-        setIsTyping(false);
-      }
-    }, 15); 
+    try {
+        const res = await fetch("/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: finalQuery }),
+        });
+
+        if (!res.ok) throw new Error("API Error");
+
+        const data = await res.json();
+        const aiReply = data.reply;
+
+        // Typewriter Effect
+        setIsThinking(false);
+        setIsTyping(true);
+        
+        let i = -1;
+        const typeWriter = setInterval(() => {
+          i++;
+          setResponse((prev) => prev + aiReply.charAt(i));
+          if (i >= aiReply.length - 1) {
+            clearInterval(typeWriter);
+            setIsTyping(false);
+          }
+        }, 15); // Typing speed
+
+    } catch (error) {
+        setIsThinking(false);
+        setResponse("// SYSTEM ERROR: Connection to Neural Net failed.");
+    }
   };
 
   const closeAI = () => {
@@ -134,14 +104,12 @@ export default function LandingBody() {
     e.preventDefault(); 
     setActivePortal(portal); 
 
-    // Adjust the loader duration here
     setTimeout(() => {
         router.push(portal.href);
     }, 4000); 
   };
 
-  // --- PORTAL CONFIGURATION (REORDERED) ---
-  // Order: About -> Tech -> Project -> Timeline -> Trophy -> Off-Duty
+  // --- PORTAL CONFIGURATION ---
   const portals: PortalData[] = [
     { 
         name: "About", 
@@ -378,11 +346,16 @@ export default function LandingBody() {
         <div className="text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
-            className="text-4xl md:text-8xl font-bold tracking-tighter text-white/90  mt-7 "
+            className="text-4xl md:text-8xl font-bold tracking-tighter text-white/90 mb-4"
           >
             HEMANT BHATT
           </motion.h1>
-          
+          <motion.p 
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
+            className="text-gray-400 font-mono text-xs md:text-sm tracking-widest"
+          >
+            // SYSTEM READY. SELECT A PORTAL TO EXPERIENCE ITS UNIQUE DESIGN SIGNATURE.
+          </motion.p>
         </div>
 
         {/* === AI NEURAL SEARCH === */}
@@ -432,7 +405,6 @@ export default function LandingBody() {
                 exit={{ opacity: 0, height: 0, y: -10 }}
                 className="overflow-hidden"
               >
-                
                 <div className="bg-[#0A0A0A] border border-cyan-500/30 rounded-2xl p-5 shadow-2xl relative mt-4 min-h-[100px]">
                    <button onClick={closeAI} className="absolute top-3 right-3 text-gray-500 hover:text-white"><X size={16} /></button>
                    <div className="flex gap-3 items-start">
@@ -462,13 +434,6 @@ export default function LandingBody() {
               <motion.div animate={{ x: [0, 100, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }} transition={{ duration: 10, repeat: Infinity }} className="absolute top-[-20%] left-[-20%] w-[400px] h-[400px] bg-cyan-600 rounded-full blur-[180px]" />
               <motion.div animate={{ x: [0, -100, 0], y: [0, 50, 0], scale: [1, 1.5, 1] }} transition={{ duration: 15, repeat: Infinity }} className="absolute bottom-[-20%] right-[-20%] w-[500px] h-[500px] bg-purple-700 rounded-full blur-[180px]" />
           </div>
-          <motion.p 
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
-            className="text-gray font-mono text-xs md:text-sm tracking-widest text-center mb-6"
-          >
-            {/* UPDATED HEADING PHRASE */}
-            // SELECT A PORTAL TO EXPERIENCE ITS UNIQUE DESIGN SIGNATURE.
-          </motion.p>
 
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {portals.map((item, index) => (
