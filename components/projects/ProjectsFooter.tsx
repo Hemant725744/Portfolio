@@ -47,7 +47,7 @@ export default function ProjectsFooter() {
                             { name: "LinkedIn",  href: "https://linkedin.com/in/hemantbhatt19", icon: Linkedin },
                             { name: "GitHub", href: "https://github.com/Hemant725744", icon: Github },
                             { name: "Email",  href: "mailto:bhatthemant268@gmail.com",icon: Mail },
-                            { name: "WhatsApp", href: "https://wa.me/91725744268", icon: MessageCircle }
+                            { name: "WhatsApp", href: "https://wa.me/8591140896", icon: MessageCircle }
                         ].map((item, idx) => (
                             <a key={idx} href={item.href} className="flex items-center gap-4 text-[#1D3557]/60 hover:text-[#1D3557] transition-all group">
                                 <div className="p-2 border border-[#1D3557]/20 group-hover:bg-[#1D3557] group-hover:text-white transition-colors">

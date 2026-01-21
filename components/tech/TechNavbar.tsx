@@ -27,7 +27,7 @@ export default function TechNavbar() {
         </Link>
         
         <a 
-          href="/Hemant_Resume.pdf" 
+          href="/Hemant_Bhatt.pdf" 
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-400 hover:text-green-400 transition-colors flex items-center gap-1"

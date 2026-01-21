@@ -61,14 +61,14 @@ export default function AboutFooter() {
                             <span className="font-bold text-sm">GitHub</span>
                         </a>
 
-                        <a href="mailto:hemantbhatt19@gmail.com" className="flex items-center gap-4 text-gray-500 hover:text-black transition-all group">
+                        <a href="mailto:hemantbhatt268@gmail.com" className="flex items-center gap-4 text-gray-500 hover:text-black transition-all group">
                             <div className="p-2 rounded-full bg-gray-100 group-hover:bg-rose-500 group-hover:text-white transition-colors">
                                 <Mail size={18} />
                             </div>
                             <span className="font-bold text-sm">Email</span>
                         </a>
 
-                        <a href="https://wa.me/919820044257" className="flex items-center gap-4 text-gray-500 hover:text-black transition-all group">
+                        <a href="https://wa.me/8591140896" className="flex items-center gap-4 text-gray-500 hover:text-black transition-all group">
                             <div className="p-2 rounded-full bg-gray-100 group-hover:bg-green-500 group-hover:text-white transition-colors">
                                 <MessageCircle size={18} />
                             </div>

@@ -47,8 +47,8 @@ export default function TimelineFooter() {
                     
                     <div className="flex flex-col gap-5">
                         {[
-                            { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
-                            { name: "GitHub", icon: Github, href: "https://github.com" },
+                            { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/hemantbhatt19" },
+                            { name: "GitHub", icon: Github, href: "https://github.com/Hemant725744" },
                             { name: "Email", icon: Mail, href: "mailto:bhatthemant268@gmail.com" },
                             { name: "WhatsApp", icon: MessageCircle, href: "https://wa.me/8591140896" }
                         ].map((item, idx) => (

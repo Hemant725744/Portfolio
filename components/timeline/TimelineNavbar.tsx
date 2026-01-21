@@ -25,8 +25,8 @@ export default function TimelineNavbar() {
         
         {/* 1. DOWNLOAD CV BUTTON */}
         <a 
-          href="/Hemant_Resume.pdf" // Ensure this file exists in your 'public' folder
-          download="Hemant_Bhatt_CV.pdf"
+          href="/Hemant_Bhatt.pdf" // Ensure this file exists in your 'public' folder
+          download="Hemant_Bhatt.pdf"
           className="group flex items-center gap-2 text-xs md:text-sm tracking-[0.2em] uppercase hover:opacity-50 transition-opacity"
         >
           <Download size={16} className="group-hover:scale-110 transition-transform" />
