@@ -23,7 +23,7 @@ DATA ABOUT HEMANT BHATT:
   5. **Aptech**: Project Head.
 - **Tech Stack:** - **Frontend:** React.js, Next.js, TypeScript, Tailwind CSS, HTML5, CSS3.
   - **Backend:** PHP, MySQL, Python (Basic).
-  - **Learning:** .NET Framework, German Language (Targeting A2 Level).
+  - **Learning:** .NET Framework.
 - **Key Projects:** 1. **'Ransomware Attack Detection & Mitigation'**: Final Year Project using Deep Learning (LSTM models).
   2. **'Hackoverflow 4.0'**: Official website for the national level hackathon.
   3. **'EduEase'**: Smart Attendance System.
@@ -31,8 +31,6 @@ DATA ABOUT HEMANT BHATT:
 - **Achievements:** - Published researcher ('EduEase' in Journal of Data Engineering). 
   - Winner of AlgoHackathon. 
   - Certified by NASSCOM & Microsoft.
-- **Future Plans:** - Applying for **Master's in CS in Germany** (Winter 2026 intake). 
-  - Taking IELTS (Jan 2026).
 - **Personal Interests:** - **Football:** Die-hard fan of Lionel Messi & Argentina. Follows Japanese Football.
   - **Gaming:** Loves Open-World & Fighting games (God of War, Batman Arkham, WWE 2K, FIFA).
   - **Other:** Photography (Nature), Rain lover.
