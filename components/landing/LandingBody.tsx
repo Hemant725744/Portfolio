@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Terminal, Award, Clock, Briefcase, Gamepad2, ArrowRight, Bot, Send, Sparkles, Loader2, X, UserCircle, Cpu, Wifi, Palette, Feather, Heart } from "lucide-react";
 
 // --- SUGGESTIONS FOR THE USER ---
-const SUGGESTIONS = ["Who is Hemant?", "What is his Tech Stack?", "Does he like Football?", "Explain Next.js", "Future Plans?"];
+const SUGGESTIONS = ["Who is Hemant?", "What is his Tech Stack?", "Does he like Football?"];
 
 // Define Portal Types
 type PortalData = {
