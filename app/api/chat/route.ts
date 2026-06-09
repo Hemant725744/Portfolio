@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-
+export const dynamic = 'force-dynamic';
 // 1. Get Key
 const API_KEY = process.env.GEMINI_API_KEY;
 
@@ -85,6 +85,7 @@ export async function POST(req: Request) {
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        cache: 'no-store', // Add this line to prevent fetch caching
         body: JSON.stringify({
           contents: [{ parts: [{ text: `${HEMANT_CONTEXT}\n\nUSER QUESTION: ${message}` }] }],
         }),

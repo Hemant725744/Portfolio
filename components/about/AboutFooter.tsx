@@ -27,7 +27,7 @@ export default function AboutFooter() {
                 </div>
 
                 {/* "OPEN TO WORK" Badge - Themed to match About Section */}
-                <motion.div 
+                {/* <motion.div 
                     whileHover={{ scale: 1.05 }}
                     className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 text-xs font-bold tracking-widest uppercase shadow-sm cursor-default"
                 >
@@ -36,7 +36,7 @@ export default function AboutFooter() {
                       <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500"></span>
                     </span>
                     OPEN TO WORK
-                </motion.div>
+                </motion.div> */}
             </div>
 
             {/* --- RIGHT COLUMN: CONNECT LINKS --- */}

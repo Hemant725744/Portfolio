@@ -341,9 +341,9 @@ export default function LandingBody() {
 
       {/* CONTENT */}
       <div className="relative z-40 w-full max-w-5xl px-6 flex flex-col items-center gap-8 md:gap-10">
-        
+       
         {/* HEADER */}
-        <div className="text-center">
+        <div className="text-center mt-10">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
             className="text-4xl md:text-8xl font-bold tracking-tighter text-white/90 mb-4"

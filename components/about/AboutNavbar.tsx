@@ -29,11 +29,16 @@ export default function AboutNavbar() {
 
 
       {/* ================= CENTER: TITLE ================= */}
-      <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-3">
-        <span className="font-sans text-2xl md:text-3xl font-black text-black tracking-tighter hidden md:block">
-          PERSONNEL<span className="text-rose-500">.</span>FILE
-        </span>
-      </div>
+      <motion.div 
+                    whileHover={{ scale: 1.05 }}
+                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 text-xs font-bold tracking-widest uppercase shadow-sm cursor-default"
+                >
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500"></span>
+                    </span>
+                    OPEN TO WORK
+                </motion.div>
 
 
       {/* ================= RIGHT: RETURN TO BASE ================= */}

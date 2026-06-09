@@ -56,7 +56,7 @@ const educationData = [
     year: "2022 - Present",
     degree: "B.E. Computer Engineering",
     school: "Pillai HOC College of Engineering",
-    score: "CGPA: 7.9/10 (Ongoing)",
+    score: "SGPA: 7.9/10",
     desc: "Specializing in Computer Engineering."
   },
   {
@@ -94,20 +94,20 @@ const testimonials = [
 // --- DATA: FAQ ---
 const faqs = [
   {
-    q: "Why Engineering?",
-    a: "I chose engineering because it allows me to solve real-world problems using logic, creativity, and technology. Building solutions that have practical impact—whether through software, systems, or digital experiences—motivates me to continuously learn and improve."
+    q: "What motivated you to pursue a career in engineering?",
+    a: "I chose engineering because it combines analytical thinking, creativity, and innovation to solve real-world problems. The opportunity to design impactful solutions and continuously adapt to evolving technologies is what drives my passion for the field."
   },
   {
-    q: "Do you do freelance work?",
-    a: "Yes, I do take up freelance projects. I work with individuals, startups, and small businesses to design and develop clean, efficient, and scalable solutions based on their requirements."
+    q: "Are you available for freelance and contract opportunities?",
+    a: "Yes. I collaborate with individuals, startups, and organizations on freelance and contract-based projects, delivering scalable, efficient, and high-quality solutions tailored to their specific requirements."
   },
   {
-    q: "What are the charges for freelance work?",
-    a: "Freelance charges depend on the project scope, complexity, timeline, and required features. I prefer discussing the requirements first and then providing a fair and transparent quote tailored to the project."
+    q: "How is pricing determined for freelance projects?",
+    a: "Project pricing is based on several factors, including scope, complexity, timeline, technical requirements, and expected deliverables. After assessing the project requirements, I provide a transparent and customized quotation."
   },
   {
-    q: "Do you offer any discounts on freelance projects?",
-    a: "Yes, I do offer discounts in certain cases, such as for students, non-profit organizations, long-term collaborations, or early-stage startups. Discounts are considered on a case-by-case basis."
+    q: "Do you offer discounted rates for specific projects or organizations?",
+    a: "Yes. Special pricing may be considered for students, non-profit organizations, early-stage startups, and long-term collaborations. Each request is evaluated individually to ensure a fair and mutually beneficial arrangement."
   }
 ];
 
